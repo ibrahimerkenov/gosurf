@@ -1,0 +1,900 @@
+// Import
+
+@import "vars.sass"
+
+// Box-sizing
+
+*
+	box-sizing: border-box
+	outline: none
+
+// Defaults
+
+body
+	font-family: 'Fira Sans', sans-serif
+	font-size: 16px
+	font-weight: 400
+	color: #fff
+	background-color: #171919
+	overflow-x: hidden
+	text-transform: uppercase
+
+h1, h2, h3, h4, h5, h6, p
+	margin: 0
+	padding: 0
+
+a
+	display: inline-block
+	outline: none
+	text-decoration: none
+	color: #fff
+
+ul
+	margin: 0
+	padding: 0
+
+li
+	list-style: none
+
+button, input
+	margin: 0
+	padding: 0
+
+// Global
+
+.headline-left
+	font-size: 22px
+	line-height: 32px
+	letter-spacing: 7.33333px
+	opacity: 0.5
+	position: relative
+	padding-left: 103px
+	display: inline-block
+	&::before
+		content: ''
+		position: absolute
+		top: 50%
+		left: 0
+		width: 80px
+		height: 1px
+		transform: translateY(-50%)
+		background-color: #fff
+		opacity: .5
+
+.headline-right
+	font-size: 22px
+	line-height: 32px
+	letter-spacing: 7.33333px
+	opacity: 0.5
+	position: relative
+	padding-right: 103px
+	display: inline-block
+	&::before
+		content: ''
+		position: absolute
+		top: 50%
+		right: 0
+		width: 80px
+		height: 1px
+		transform: translateY(-50%)
+		background-color: #fff
+		opacity: .5
+
+.slider-arrows
+	position: absolute
+	top: 40px
+	border: none
+	background-color: transparent
+	cursor: pointer
+	z-index: 6
+	&__left
+		right: 125px
+	&__right
+		right: 80px
+
+.title
+	&__block
+		display: inline-block
+		position: relative
+		transform: translateX(-50px)
+		span
+			display: inline-block
+			font-weight: 800
+			font-size: 200px
+			color: rgba(255, 255, 255, .02)
+		h3
+			font-size: 80px
+			color: #fff
+			position: absolute
+			top: 0
+			right: -13px
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				right: 0
+				width: 80px
+				height: 1px
+				background-color: $green
+
+.container
+	max-width: 1920px
+	width: 100%
+	margin: 0 auto
+
+.subtitle
+	display: inline-block
+	text-align: right
+	position: relative
+	&__head
+		font-size: 40px
+		font-weight: 800
+		padding: 8px 10px 0 0
+		span
+			font-weight: 100
+	&__surf-bg
+		position: absolute
+		top: 50%
+		right: -220px
+		transform: translateY(-50%)
+		margin-top: 50px
+
+.btn
+	font-weight: 800
+	font-size: 40px
+	line-height: 36px
+	position: relative
+	span
+		display: inline-block
+		padding: 17px 57px 15px 17px
+		background-color: $green
+		margin-left: 19px
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			top: 50%
+			left: -11px
+			transform: translateY(-50%)
+			width: 20px
+			height: 1px
+			background-color: #fff
+		&::after
+			content: ''
+			position: absolute
+			top: 50%
+			right: 17px
+			transform: translateY(-50%)
+			width: 24px
+			height: 20px
+			background-image: url('../img/svg/arrows-right.svg')
+
+.section-padding
+	padding: 160px 0 120px
+
+.quantity
+  display: inline-block
+
+input[type=number]
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+    -webkit-appearance: none
+    margin: 0
+  -moz-appearance: textfield
+
+.quantity input
+  width: 42px
+  height: 35px
+  display: block
+  border: none
+  color: #fff
+  background-color: transparent
+  font-weight: 800
+  font-size: 40px
+  line-height: 0
+  &:focus
+    outline: 0
+
+.quantity-nav
+  position: absolute
+  display: flex
+  align-items: center
+ 	top: 40px
+  right: 0
+
+.quantity-button
+  position: relative
+  cursor: pointer
+  display: flex
+  align-items: center
+  user-select: none
+  height: 30px
+  &.quantity-down
+  	margin-right: 16px
+
+.menu-link
+	display: none
+	width: 50px
+	height: 50px
+	position: absolute
+	top: 33px
+	right: 0
+	z-index: 12
+	outline: 0
+	background-color: #171919
+	span
+		display: block
+		width: 24px
+		height: 2px
+		background-color: #fff
+		position: absolute
+		left: 50%
+		margin-left: -12px
+		top: 50%
+		margin-top: -1px
+		&:after
+			display: block
+			width: 24px
+			height: 2px
+			background-color: #fff
+			position: absolute
+			left: 50%
+			margin-left: -12px
+			top: 50%
+			margin-top: -1px
+		&:before
+			display: block
+			width: 24px
+			height: 2px
+			background-color: #fff
+			position: absolute
+			left: 50%
+			margin-left: -12px
+			top: 50%
+			margin-top: -1px
+			content: ''
+			margin-top: -12px
+			transition: all .3s ease
+		&:after
+			content: ''
+			margin-top: 10px
+			transition: all .3s ease
+
+.menu-link--active span
+  background-color: transparent
+  &:before
+    transform: rotate(135deg)
+    margin-top: 0
+  &:after
+    transform: rotate(-135deg)
+    margin-top: 0
+
+.menu
+	&.menu--active
+		opacity: 1
+		visibility: visible
+		transform: translateX(0)
+
+// Header
+
+.header
+	height: 100vh
+	position: relative
+	&__arrows-down
+		position: absolute
+		left: 210px
+		bottom: 30px
+		z-index: 3
+	&__map
+		position: absolute
+		top: 0
+		right: -90px
+		z-index: 4
+	&__slider
+		&-item
+			height: 100vh
+			background: url('../img/header-bg.jpg') no-repeat center center / cover
+			position: relative
+	&__logo-text
+		font-weight: 800
+		font-size: 200px
+		max-width: 467px
+		line-height: 156px
+		color: rgba(#fff, .07)
+		position: absolute
+		top: 0
+		left: -20px
+		z-index: 5
+	&__aside
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 6
+		border-right: 1px solid rgba(#fff, .25%)
+		height: 100vh
+		width: 168px
+		text-align: center
+	&__date
+		font-weight: 800
+		font-size: 31px
+		margin-bottom: 15px
+		span
+			display: block
+			padding-top: 3px
+			font-weight: 300
+			font-size: 11px
+			letter-spacing: 1.4px
+	&__location
+		display: inline-block
+		font-weight: 300
+		font-size: 10px
+		line-height: 14px
+		letter-spacing: 1.05px
+		padding-left: 19px
+		position: relative
+		text-transform: capitalize
+		&::before
+			content: ''
+			position: absolute
+			width: 11px
+			height: 14px
+			top: 50%
+			left: 0
+			transform: translateY(-50%)
+			background-image: url('../img/svg/marker.svg')
+	&__search
+		margin-bottom: 20px
+		img
+			width: 20px
+
+.logo
+	display: flex
+	justify-content: center
+	align-items: center
+	font-weight: 800
+	font-size: 55px
+	padding-top: 33px
+	width: 100%
+	position: relative
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		width: 100%
+		height: 181px
+		background-color: $green
+	p
+		display: flex
+		justify-content: center
+		align-items: center
+		transform: rotate(-180deg)
+		writing-mode: tb-rl
+	span
+		display: block
+		width: 1px
+		height: 20px
+		margin: 8px 0
+		background-color: #fff
+
+.menu
+	margin: 24px 0
+	transition: .7s
+	&__item
+		margin-bottom: 13px
+		&:last-child
+			margin-bottom: 0
+	&__link
+	&__title
+		display: block
+		font-size: 10px
+		letter-spacing: 3px
+		font-weight: 500
+		padding-top: 2px
+		text-transform: capitalize
+
+.slider-item__info
+	position: absolute
+	right: 80px
+	bottom: 116px
+	text-align: right
+	&-title
+		font-weight: 800
+		font-size: 80px
+		line-height: 86px
+		margin-bottom: 28px
+	&-subtitle
+		margin-bottom: 3px
+	&-subtext
+		margin-bottom: 6px
+	&-text
+		font-weight: 800
+		font-size: 40px
+		line-height: 46px
+		margin-bottom: 15px
+
+.slider
+	&-dotshead
+		position: absolute
+		right: 50px
+		bottom: 30px
+		max-width: 920px
+		width: 100%
+		.slick-current
+			.dots-box
+				border-top-color: $green
+	&-map
+		background: url('../img/world-map-dots.png') no-repeat center center / auto
+		.slick-list
+			min-height: 735px
+		.slick-current
+			.slider-dots__content
+				display: block
+			.slider-dots__circle
+				position: relative
+				&::after
+					content: ''
+					position: absolute
+					width: 0
+					height: 0
+					bottom: 14px
+					left: 50%
+					transform: translateX(-50%)
+					border-bottom: 19px solid $green
+					border-left: 12px solid transparent
+					border-right: 12px solid transparent
+					border-bottom-left-radius: 10px
+					border-bottom-right-radius: 10px
+	&-dots
+		position: relative
+		cursor: pointer
+		&--1
+			top: 378px
+			left: 148px
+		&--2
+			top: 340px
+			left: 105px
+			.slider-dots__circle
+				position: relative
+				&::before
+					content: ''
+					position: absolute
+					width: 14px
+					height: 17px
+					background: url('../img/mini-marker.png') no-repeat center center / cover
+					top: -20px
+					right: -20px
+		&--3
+			top: 368px
+			left: 120px
+		&--4
+			top: 551px
+			left: 3px
+		&--5
+			top: 264px
+			left: -71px
+		&--6
+			top: 605px
+			left: -153px
+		&--7
+			top: 445px
+			left: -183px
+		&--8
+			top: 554px
+			left: -83px
+		&__circle
+			width: 23px
+			height: 23px
+			background-color: $green
+			border-radius: 50%
+			box-shadow: 0 0 35px $green
+		&__content
+			display: none
+			width: 283px
+			padding: 28px 32px
+			background-color: rgba(#0F1010, .7)
+			border-radius: 6px
+			position: absolute
+			left: -70%
+			bottom: 54px
+			z-index: 5
+			transition: .3s
+			&-row
+				display: flex
+				justify-content: space-between
+			&-head
+			&-title
+				font-weight: 800
+				font-size: 18px
+				line-height: 26px
+				position: relative
+				padding-bottom: 8px
+				margin-bottom: 8px
+				&::after
+					content: ''
+					position: absolute
+					left: 0
+					bottom: 0
+					width: 80px
+					height: 1px
+					background-color: $green
+			&-subtitle
+				font-size: 16px
+				line-height: 19px
+				text-transform: capitalize
+				margin-bottom: 30px
+			&-link
+				padding-top: 4px
+			&-item
+				text-align: center
+				img
+					margin: 0 auto
+					margin-bottom: 7px
+			&-number
+				font-weight: 800
+				font-size: 16px
+				line-height: 23px
+				margin-bottom: 7px
+			&-name
+				font-weight: 300
+				font-size: 10px
+				line-height: 12px
+
+.dots-box
+	width: 200px
+	height: 38px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	border-top: 4px solid #fff
+	padding-top: 11px
+	&__number
+		font-size: 24px
+		font-weight: 800
+		line-height: 34px
+	&__name
+		font-size: 16px
+		font-weight: 300
+		line-height: 19px
+		text-transform: capitalize
+
+.line-animation
+	stroke-dashoffset: 558
+	stroke-dasharray: 558
+	animation: animdash 5s 6s
+	animation-fill-mode: forwards
+
+
+@keyframes animdash
+	to
+		stroke-dashoffset: 0
+	
+// Section SURF
+
+.surf
+	position: relative
+	&__subtitle
+		padding-right: 80px
+		text-align: right
+		margin-top: -86px
+	&-slider
+		padding-top: 110px
+		.slider-arrows
+			top: 50px
+			opacity: .25
+		.surf-box
+			cursor: pointer
+			margin-right: -40px
+			&:hover
+				.surf-box__inner
+					background-color: rgba(28,33,33, .3)
+				.surf-box__inner-btn
+					display: block
+					opacity: 1
+					transform: translateY(0)
+		.surf-box:nth-child(even)
+			position: relative
+		.surf-box:nth-child(4n + 1)
+			margin-top: 32px
+			position: relative
+		.surf-box:nth-child(4n + 3)
+			margin-top: 89px
+			position: relative
+		.slick-current
+			.surf-box__inner
+				background-color: rgba(28,33,33, .3)
+			.surf-box__inner-btn
+				opacity: 1
+				transform: translateY(0)
+	&-box
+		background-repeat: no-repeat
+		background-position: center
+		background-size: cover
+		&__inner
+			background-color: rgba(#1C2121, .85)
+			min-height: 680px
+			position: relative
+			overflow: hidden
+			transition: .3s
+			&-title
+				font-weight: 800
+				font-size: 40px
+				line-height: 36px
+				padding: 72px 0 0 40px
+				width: 140px
+			&-location
+				position: absolute
+				left: 40px
+				bottom: 80px
+				font-size: 18px
+				line-height: 22px
+				letter-spacing: 8px
+				transform: rotate(180deg)
+				writing-mode: vertical-rl
+				white-space: nowrap
+				span
+					font-weight: 100
+			&-btn
+				opacity: 0
+				transform: translateY(100%)
+				position: absolute
+				left: 47px
+				bottom: 0
+				transition: .3s
+	&__coordinates
+		position: absolute
+		top: 600px
+		right: 76px
+		font-size: 18px
+		line-height: 22px
+		letter-spacing: 8px
+		transform: rotate(180deg)
+		writing-mode: vertical-rl
+		white-space: nowrap
+
+// Section HOLDER
+
+.travel
+	background-image: url('../img/cocktail.png')
+	background-position: right bottom
+	background-size: 220px
+	&__holder-star
+		margin-left: 25px
+
+.sleep
+	background-image: url('../img/flower.png')
+	background-position: right 95%
+	.holder-slider__info-airline
+		min-height: 425px
+	.holder-slider__description
+		margin-top: -35px
+	.holder-slider__description-item
+		margin-right: 110px
+
+.holder
+	background-repeat: no-repeat
+	&-slider
+		margin-top: -85px
+		.slider-arrows
+			top: 227px
+			opacity: .25
+		&__item
+		&__subtitle
+			padding-right: 80px
+			text-align: right
+			transform: translateY(92px)
+		&__bg
+			background-repeat: no-repeat
+			background-position: top left
+			min-height: 780px
+		&__info
+			&-airline
+				padding: 160px 0 0 136px
+				background-repeat: no-repeat
+				background-position: right center
+				min-height: 310px
+				margin-top: -265px
+				.subtitle
+					text-align: left
+				.subtitle__head
+					position: relative
+					display: flex
+					align-items: center
+					.logo-airline
+						position: absolute
+						top: 50%
+						right: -78px
+						transform: translateY(-50%)
+		&__description
+			display: flex
+			justify-content: center
+			flex-wrap: wrap
+			margin-top: 35px
+			&-item
+				display: flex
+				margin-right: 80px
+				&:last-child
+					margin-right: 0
+			&-subtitle
+				font-size: 18px
+				line-height: 22px
+				letter-spacing: 8px
+				color: rgba(#fff, .5)
+				transform: rotate(180deg)
+				writing-mode: vertical-rl
+				white-space: nowrap
+				text-align: right
+			&-title
+				font-weight: 800
+				font-size: 40px
+				line-height: 36px
+				margin-left: 18px
+				position: relative
+				&--small
+					display: block
+					text-align: right
+					font-weight: normal
+					font-size: 14px
+					line-height: 36px
+					letter-spacing: 5.25px
+					color: rgba(#fff, .75)
+				&--summ
+					width: 92px
+					display: inline-block
+		&__btn
+			margin-top: 70px
+			text-align: center
+	&-star
+		display: flex
+		&__item
+			margin-right: 11px
+			&:last-child
+				margin-right: 0
+
+// section SHOP
+
+.shop
+	&-slider
+		background-image: url('../img/shop-slider-bg.png')
+		background-repeat: no-repeat
+		background-position: right center
+		&__inner
+			display: flex
+			justify-content: space-between
+		&__info
+			padding: 110px 0 0 136px
+			.subtitle
+				text-align: left
+		&__price
+			font-weight: 800
+			font-size: 32px
+			sup
+				font-size: 18px
+				margin-left: 5px
+		&__content
+			display: flex
+			align-items: flex-end
+			padding-right: 80px
+		&__btn
+			margin-top: 65px
+		&__surfboard
+			margin-right: 152px
+			position: relative
+			&-box
+				position: absolute
+				&--position1
+					top: 202px
+					right: 36px
+				&--position2
+					top: 296px
+					left: -5px
+				&--position3
+					bottom: 65px
+					left: 53px
+					.shop-slider__surfboard-content
+						top: 50%
+						left: -367px
+						&:before
+							top: 50%
+							left: 279px
+			&-circles
+				width: 20px
+				height: 20px
+				background-color: #fff
+				border-radius: 50%
+				position: relative
+				cursor: pointer
+				&.active 
+					.shop-slider__surfboard-circle
+						transform: translate(-50%, -50%) rotate(0deg)
+				&.active + .shop-slider__surfboard-content
+					visibility: visible
+					opacity: 1
+			&-circle
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				width: 12px
+				height: 2px
+				background-color: $green
+				transition: .7s
+				& + .shop-slider__surfboard-circle
+					transform: translate(-50%, -50%) rotate(90deg)
+			&-content
+				visibility: hidden
+				position: absolute
+				font-weight: 800
+				font-size: 24px
+				line-height: 24px
+				top: 50%
+				left: 132px
+				transform: translateY(-50%)
+				width: 255px
+				height: 48px
+				opacity: 0
+				transition: .7s
+				&:before
+					content: ''
+					position: absolute
+					top: 50%
+					left: -104px
+					width: 80px
+					height: 1px
+					background-color: rgba(#fff, .5)
+		&__extras
+			font-weight: 800
+			font-size: 28px
+			line-height: 40px
+			&-items
+				display: flex
+				margin-top: 25px
+			&-item
+				display: flex
+				flex-direction: column
+				align-items: center
+				justify-content: space-between
+				text-align: center
+				min-height: 196px
+				margin-right: 87px
+				&:last-child
+					margin-right: 0
+			&-title
+				margin-top: 35px
+			&-name
+				font-size: 18px
+				line-height: 22px
+				font-weight: normal
+				letter-spacing: 8px
+				color: rgba(#fff, .5)
+				margin-bottom: 6px
+			&-price
+				font-weight: 800
+				font-size: 18px
+				line-height: 40px
+	&__holder-star
+		margin: 47px 0 14px 0
+
+// Footer
+
+.footer
+	padding: 120px 0 37px 0
+	text-align: center
+	&__btn
+		margin-bottom: 27px
+	&__rights-reserved
+		font-weight: 300
+		font-size: 12px
+		line-height: 14px
+		letter-spacing: 1.05px
+		color: rgba(#fff, .5)
+	&__btn
+		.btn
+			span
+				padding: 17px 18px 15px 17px
+				&::after
+					display: none
+
+// Always END
+
+@import "media.sass"
